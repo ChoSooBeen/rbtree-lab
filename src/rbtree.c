@@ -2,6 +2,8 @@
 
 #include <stdlib.h>
 
+static int inorder(node_t *p, key_t *arr, const rbtree *t, int i);
+
 //RB Tree 구조체 생성
 rbtree *new_rbtree(void) {
   rbtree *p = (rbtree *)calloc(1, sizeof(rbtree));
@@ -244,31 +246,19 @@ int rbtree_erase(rbtree *t, node_t *p) {
   return 0;
 }
 
+int inorder(node_t *p, key_t *arr, const rbtree *t, int i) {
+    if (p == t->nil) {
+      return i;
+    }
+    i = inorder(p->left, arr, t, i);
+    arr[i++] = p->key;
+    i = inorder(p->right, arr, t, i);
+    return i;
+}
+
 int rbtree_to_array(const rbtree *t, key_t *arr, const size_t n) {
   // TODO: implement to_array
-  // node_t *tmp = t->root;
-  
-  // //가장 작은 값 찾기
-  // while (tmp != t->nil) {
-  //   tmp = tmp->left;
-  // }
-
-  // //현재 저장된 개수
-  // int count = 0;
-  // while (count < n) {
-    
-  //   arr[count] = tmp->key; //왼쪽 노드 저장
-  //   count++;
-  //   if (count == n-1){
-  //     break;
-  //   }
-
-  //   //중간 노드 저장
-  //   tmp = tmp->parent;
-  //   arr[count] = tmp->key;
-  //   count++;
-
-  //   //오른쪽 노드
-  // }
+  node_t *p = t->root;
+  inorder(p, arr, t, 0);
   return 0;
 }
