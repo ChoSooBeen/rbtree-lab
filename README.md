@@ -1,5 +1,15 @@
 # Red-Black Tree 구현
 
+## :hourglass: 2023.05.05 ~ 2023.05.11
+## :bulb: C언어와 익숙해지고 심화 자료구조 다뤄보기
+
+:bookmark: 블로그 정리
+- C언어 : https://soo-note.tistory.com/62
+- 연결리스트, 균형이진트리 : https://soo-note.tistory.com/63
+- RB트리 개념 : https://soo-note.tistory.com/64
+- RB트리 구현 : https://soo-note.tistory.com/67
+
+---
 Balanced search tree로 많이 쓰이는 Red-black tree (이하 RB tree)를 C 언어로 구현하는 과제입니다.
 구현하는 추상 자료형 (ADT: abstract data type)은 ordered set, multiset 입니다.
 
